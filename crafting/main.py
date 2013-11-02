@@ -35,7 +35,7 @@ app = webapp2.WSGIApplication([
 	('/logout', LogoutHandler),
 	webapp2.Route(r'/p/<product_id:\d+>/<product_name:\s+>', handler=ProductHandler),
 	('/admin', AdminHandler),
-	('/editCrafter/key=(.*)', EditCrafterHandler)
-	('/crafters.json', CraftersHandler)
+	('/editCrafter/key=(.*)', EditCrafterHandler),
+	('/crafters.json', CraftersHandler),
 
 ], debug=True, config=config)
