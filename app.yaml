@@ -1,0 +1,45 @@
+application: hubspotweb
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+# Show our from the distribution
+- url: /css
+  static_dir: public/css
+
+# Show all our dist JS
+- url: /js
+  static_dir: public/js
+
+# Show Images folder
+- url: /img
+  static_dir: public/img
+
+# Setup Main Handler
+- url: /.*
+  script: hubspot.main.app
+
+# Setup our evironment variables
+env_variables:
+  dist_rev: '1382822078200'
+
+skip_files:
+- ^(.*/)?.*assets/.*
+- ^(.*/)?.*build/.*
+- ^(.*/)?.*templates/.*
+- ^(.*/)?.*node_modules/.*
+
+error_handlers:
+- file: views/errors/notfound.html
+
+libraries:
+- name: webapp2
+  version: latest
+
+- name: jinja2
+  version: latest
+
+- name: MySQLdb
+  version: latest
