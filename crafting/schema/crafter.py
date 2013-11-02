@@ -39,3 +39,9 @@ class Crafter(ndb.Model):
 		query_obj = Crafter.query()
 		return query_obj.fetch(limit=6)
 
+
+	@staticmethod
+	def get_all():
+
+		query_obj = Crafter.query()
+		return query_obj.fetch()

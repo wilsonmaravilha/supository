@@ -10,6 +10,7 @@ import webapp2
 from webapp2_extras import routes
 
 from crafting.handlers.home import HomepageHandler
+from crafting.handlers.admin import AdminHandler, EditCrafterHandler
 
 # General Config for our web application
 config = {}
@@ -26,6 +27,8 @@ config['webapp2_extras.sessions'] = {
 # going to configure now
 app = webapp2.WSGIApplication([
 
-	('/', HomepageHandler)
+	('/', HomepageHandler),
+	('/admin', AdminHandler),
+	('/editCrafter/(.*)', EditCrafterHandler)
 
 ], debug=True, config=config)
