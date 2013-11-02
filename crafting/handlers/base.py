@@ -57,7 +57,8 @@ class BaseHandler(webapp2.RequestHandler):
 		'description': False,
 		'keywords': False,
 		'author': False,
-		'errors': []
+		'errors': [],
+		'current_user': users.get_current_user()
 
 	}
 
@@ -82,6 +83,8 @@ class BaseHandler(webapp2.RequestHandler):
 
 		# Set as view option
 		default_vars['post_params'] = post_params
+
+		default_vars['current_user'] = users.get_current_user()
 
 		# Return merged collections
 		return dict(default_vars.items() + current_vars.items())

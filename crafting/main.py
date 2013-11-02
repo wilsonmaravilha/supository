@@ -10,6 +10,8 @@ import webapp2
 from webapp2_extras import routes
 
 from crafting.handlers.home import HomepageHandler
+from crafting.handlers.product import ProductHandler
+from crafting.handlers.auth import LoginHandler, LogoutHandler
 
 # General Config for our web application
 config = {}
@@ -26,6 +28,9 @@ config['webapp2_extras.sessions'] = {
 # going to configure now
 app = webapp2.WSGIApplication([
 
-	('/', HomepageHandler)
+	('/', HomepageHandler),
+	('/login', LoginHandler),
+	('/logout', LogoutHandler),
+	webapp2.Route(r'/p/<product_id:\d+>/<product_name:\s+>', handler=ProductHandler)
 
 ], debug=True, config=config)
