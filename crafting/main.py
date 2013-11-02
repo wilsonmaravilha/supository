@@ -10,8 +10,12 @@ import webapp2
 from webapp2_extras import routes
 
 from crafting.handlers.home import HomepageHandler
+<<<<<<< Updated upstream
 from crafting.handlers.product import ProductHandler
 from crafting.handlers.auth import LoginHandler, LogoutHandler
+=======
+from crafting.handlers.crafters import CraftersHandler
+>>>>>>> Stashed changes
 from crafting.handlers.admin import AdminHandler, EditCrafterHandler
 
 # General Config for our web application
@@ -34,6 +38,7 @@ app = webapp2.WSGIApplication([
 	('/logout', LogoutHandler),
 	webapp2.Route(r'/p/<product_id:\d+>/<product_name:\s+>', handler=ProductHandler),
 	('/admin', AdminHandler),
-	('/editCrafter/(.*)', EditCrafterHandler)
+	('/editCrafter/(.*)', EditCrafterHandler),
+	('/crafters.json', CraftersHandler)
 
 ], debug=True, config=config)
