@@ -21,16 +21,6 @@ handlers:
 - url: /.*
   script: crafting.main.app
 
-# Setup our evironment variables
-env_variables:
-  dist_rev: '1382822078200'
-
-skip_files:
-- ^(.*/)?.*assets/.*
-- ^(.*/)?.*build/.*
-- ^(.*/)?.*templates/.*
-- ^(.*/)?.*node_modules/.*
-
 error_handlers:
 - file: views/errors/notfound.html
 

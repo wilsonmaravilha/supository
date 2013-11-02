@@ -44,8 +44,7 @@ class BaseHandler(webapp2.RequestHandler):
 	# Do some general checks
 	# here we mostly just check users
 	def dispatch(self):
-
-		self.setup()
+		super(BaseHandler, self).dispatch()
 
 	# Our global key to check for if
 	# a site comes in
@@ -73,8 +72,7 @@ class BaseHandler(webapp2.RequestHandler):
 
 		# Check if production
 		is_production = os.environ['SERVER_SOFTWARE'].startswith('Dev')
-		rev_uuid_valid = os.environ['dist_rev'] != None and len(os.environ['dist_rev']) > 0
-
+		
 		# Set posted items
 		post_params = {}
 		for key in self.request.POST.keys():
@@ -84,36 +82,6 @@ class BaseHandler(webapp2.RequestHandler):
 
 		# Set as view option
 		default_vars['post_params'] = post_params
-
-		# Setup generated defaults and check if running on server
-		if not is_production and rev_uuid_valid:
-
-			# Setup default
-			default_vars['rev_uuid'] = os.environ['dist_rev']
-			default_vars['rev_uuid_ext'] = '-' + default_vars['rev_uuid'] + '.min'
-
-		else:
-
-			# Default to blank !
-			default_vars['rev_uuid'] = ''
-			default_vars['rev_uuid_ext'] = ''
-
-		# Add logged in user details if saved in session
-		if 'logged_in_user_id' in self.session and self.session['logged_in_user_id'] != None:
-
-			# Set our logged in user to use for the view
-			default_vars['logged_in_user'] = {
-
-				'id': self.session['logged_in_user_id'],
-				'name': self.session['logged_in_user_name'],
-				'email': self.session['logged_in_user_email']
-
-			}
-
-		else:
-
-			# False user !
-			default_vars['logged_in_user'] = False
 
 		# Return merged collections
 		return dict(default_vars.items() + current_vars.items())
@@ -129,6 +97,7 @@ class BaseHandler(webapp2.RequestHandler):
 	# Quick definition wrapper to output the sent template
 	#
 	def render(self, template_str, template_vars=None):
+
 		template_vars = self.get_default_template_vars(template_vars)
 		template = jinja_environment.get_template(template_str)
 		self.response.out.write(template.render(template_vars))

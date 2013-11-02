@@ -16,6 +16,8 @@ class HomepageHandler(BaseHandler):
 	# Do the normal home render page
 	def get(self):
 
+		print "HERE"
+
 		# Locales
 		locales = {
 
