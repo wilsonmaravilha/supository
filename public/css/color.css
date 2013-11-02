@@ -3,7 +3,7 @@
 
 body.s_layout_fixed {
 	background-color: #fffbe5;
-	background-image: url(../images/texture_1.png);
+	background-image: url(../img/texture_1.png);
 }
 .s_main_color, #twitter li span a, .s_item .s_button_add_to_cart, .s_box h2, .box .top {
 	color: #7ebd1e;
