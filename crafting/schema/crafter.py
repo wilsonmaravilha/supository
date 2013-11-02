@@ -16,6 +16,7 @@ import logging
 class Crafter(ndb.Model):
 	name = ndb.StringProperty()
 	surname = ndb.StringProperty()
+	about = ndb.TextProperty()
 	id_number = ndb.StringProperty()
 	cell_number = ndb.StringProperty()
 	website = ndb.StringProperty()
