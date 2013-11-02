@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en" xml:lang="en" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{{title}} | Crafters Online</title>
+<meta name="description" content="{{description}}" />
+<link rel="stylesheet" type="text/css" href="/css/960.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/css/screen.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="/css/color.css" media="screen" />
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="/css/ie.css" media="screen" />
+<![endif]-->
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/js/shoppica.js"></script>
+
+
+
+</head>
+
+<body class="s_layout_fixed">
+
+<div id="wrapper"> 
+  
+  <!-- ********************** --> 
+  <!--      H E A D E R       --> 
+  <!-- ********************** -->
+  <div id="header" class="container_12">
+    <div class="grid_12">
+    
+      <div id="system_navigation" class="s_nav">
+        <ul class="s_list_1 clearfix">
+          <li><a href="/">Home</a></li>
+          <li><a href="">Logout</a></li>
+        </ul>
+      </div>
+
+      
+      <div id="categories" class="s_nav">
+        <ul>
+	  		<h2>Crafters online admin console</h2>
+      </div>
+      {% for crafter in crafters %}
+			<li> 
+				{{crafter.name}} 
+          		<a href="/editCrafter/key={{crafter.key.id()}}">Edit</a>
+			</li>
+	  {% endfor %} 
+        </ul>
+      
+    </div>
+  </div>
+  <!-- end of header --> 
+  
+
+  {% block contents %}{% endblock %}
+  
+  
+  
+  <!-- ********************** --> 
+  <!--      F O O T E R       --> 
+  <!-- ********************** --> 
+  <div id="footer" class="container_12">
+    <div id="footer_categories" class="clearfix">
+      <div class="clear"></div>
+      <div class="grid_12 border_eee"></div>
+    </div>
+    <div id="payments" class="right clearfix">
+    </div>
+  </div>
+  <!-- end of FOOTER --> 
+  
+</div>
+
+<div id="fb-root"></div>
+<script type="text/javascript">
+  window.fbAsyncInit = function() {
+    FB.init({appId: '0c18007de6f00f7ecda8c040fb76cd90', status: true, cookie: true,
+     xfbml: true});
+  };
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol +
+    '//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script>
+
+</body>
+</html>
