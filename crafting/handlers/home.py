@@ -16,10 +16,14 @@ class HomepageHandler(BaseHandler):
 	# Do the normal home render page
 	def get(self):
 
-		print "HERE"
+		# Get the list for the homepage
+		crafters = schema.Crafter.get_crafters_for_homepage()
 
 		# Locales
 		locales = {
+
+			"title": "Welcome",
+			"crafters": crafters
 
 		}
 
