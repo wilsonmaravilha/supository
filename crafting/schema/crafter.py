@@ -45,3 +45,8 @@ class Crafter(ndb.Model):
 
 		query_obj = Crafter.query()
 		return query_obj.fetch()
+
+	@staticmethod
+	def get_crafter(id):
+		crafter = Crafter.get_by_id(id)
+		return crafter

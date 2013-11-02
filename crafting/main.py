@@ -29,6 +29,6 @@ app = webapp2.WSGIApplication([
 
 	('/', HomepageHandler),
 	('/admin', AdminHandler),
-	('/editCrafter/(.*)', EditCrafterHandler)
+	('/editCrafter/key=(.*)', EditCrafterHandler)
 
 ], debug=True, config=config)

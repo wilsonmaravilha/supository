@@ -31,7 +31,8 @@ class AdminHandler(BaseHandler):
 
 class EditCrafterHandler(BaseHandler):
 	def get(self, id):
-		locales = {}
+		crafter = schema.Crafter.get_crafter(id)
+		locales = { "crafter" : crafter}
 		self.render('editcrafter.html', locales)
 	def post(self):
 		pass
