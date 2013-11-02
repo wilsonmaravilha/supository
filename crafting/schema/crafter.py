@@ -34,8 +34,8 @@ class Crafter(ndb.Model):
 	# Returns the event by it's slug
 	#
 	@staticmethod
-	def get_crafters_for_homepage():
+	def get_for_homepage():
 
 		query_obj = Crafter.query()
-		return query_obj.fetch()
+		return query_obj.fetch(limit=6)
 
