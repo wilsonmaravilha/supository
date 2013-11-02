@@ -20,3 +20,9 @@ class AllowedUser(db.Model):
 	created = db.DateTimeProperty(auto_now_add=True)
 	lastupdated = db.DateTimeProperty(auto_now_add=True)
 
+    @staticmethod
+    def get_allowed_users():
+
+        query_obj = AllowedUser.query()
+        return query_obj.fetch()
+
