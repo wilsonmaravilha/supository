@@ -10,7 +10,7 @@ import datetime
 import logging
 
 # Custom Libs
-from crafting.schemas.base import BaseModel
+from crafting.schema.base import BaseModel
 
 #
 # Represents a user in the system

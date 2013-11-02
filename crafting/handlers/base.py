@@ -5,8 +5,6 @@ from webapp2_extras import sessions
 import webapp2
 import jinja2
 
-import crafting.utils.db as db
-
 # Python Apis
 import os
 import os
@@ -41,40 +39,13 @@ class BaseHandler(webapp2.RequestHandler):
 
 		# Run setup if not already run !
 		if self.has_setup_run is False:
-
-			# Get the connection for the request
-			connection = db.get_connection()
-			self.single_connection = connection
-
-			# Set a local var that the rest of the request will use
-			self.database_read_connection = connection
-			self.database_write_connection = connection
-
-			# Get a session store for this request.
-			self.session_store = sessions.get_store(request=self.request)
-
-			# Flag that setup has run !
 			self.has_setup_run = True
- 
+
 	# Do some general checks
 	# here we mostly just check users
 	def dispatch(self):
 
-		# Run the setup
 		self.setup()
-
-		try:
-
-			# Right carry on
-			super(BaseHandler, self).dispatch()
-	
-		finally:
-
-			# Save all sessions changes
-			self.session_store.save_sessions(self.response)
-
-			# Close our database connections for the request
-			db.close_connection(self.single_connection)
 
 	# Our global key to check for if
 	# a site comes in
