@@ -1,5 +1,6 @@
 *.py[co]
 
+<<<<<<< HEAD
 lib-cov
 *.seed
 *.log
@@ -17,11 +18,14 @@ node_modules/
 
 npm-debug.log
 
+=======
+>>>>>>> adb57e737fc1bbaf3bb404a1589801d4c5666da5
 # Packages
 *.egg
 *.egg-info
 dist
 build
+<<<<<<< HEAD
 gen
 public/gen
 eggs
@@ -30,6 +34,11 @@ bin
 lib
 include
 .Python
+=======
+eggs
+parts
+bin
+>>>>>>> adb57e737fc1bbaf3bb404a1589801d4c5666da5
 var
 sdist
 develop-eggs
@@ -51,7 +60,13 @@ pip-log.txt
 # Mac
 .DS_Store
 
+<<<<<<< HEAD
 # Local Build directories
 tmp/*
 build/*
 public/dist/*
+=======
+# Private Settings
+settings.json
+>>>>>>> adb57e737fc1bbaf3bb404a1589801d4c5666da5
+/.project
